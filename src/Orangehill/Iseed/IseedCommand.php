@@ -76,7 +76,7 @@ class IseedCommand extends Command
         }
 
 
-        if ($this->checkSeedAllDatabase()){
+        if ($this->checkSeedAllDatabase()) {
             $tables = app('iseed')->getAllTableName($this->option('database'));
         }
         // dd($tables);
@@ -217,14 +217,13 @@ class IseedCommand extends Command
         return [$seedPath . '/' . $className . '.php', $className . '.php'];
     }
 
-	public function checkSeedAllDatabase()
-	{
-        
+    public function checkSeedAllDatabase()
+    {
         $checkOptionAll = ($this->option('all') === 'true');
         $checkTableAll = ($this->argument('tables') === "all");
-        if ( ($checkOptionAll) and ($checkTableAll) ){
+        if (($checkOptionAll) and ($checkTableAll)) {
             return true;
         }
         return false;
-	}
+    }
 }
